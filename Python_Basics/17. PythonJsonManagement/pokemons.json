@@ -1,0 +1,134 @@
+[
+    {
+        "name": "Pikachu",
+        "type": "Electric",
+        "level": 54,
+        "weight_kg": 6.0,
+        "is_shiny": false,
+        "held_item": null,
+        "skills": [
+            "Thunder Shock",
+            "Quick Attack",
+            "Thunderbolt",
+            "Volt Tackle"
+        ],
+        "stats": {
+            "hp": 35,
+            "attack": 55,
+            "defense": 40,
+            "sp_attack": 50,
+            "sp_defense": 50,
+            "speed": 90
+        }
+    },
+    {
+        "name": "Charmander",
+        "type": "Fire",
+        "level": 8,
+        "weight_kg": 8.5,
+        "is_shiny": true,
+        "held_item": "Charcoal",
+        "skills": [
+            "Ember",
+            "Scratch",
+            "Tackle",
+            "Smokescreen"
+        ],
+        "stats": {
+            "hp": 39,
+            "attack": 52,
+            "defense": 43,
+            "sp_attack": 60,
+            "sp_defense": 50,
+            "speed": 65
+        }
+    },
+    {
+        "name": "Bulbasaur",
+        "type": "Plant",
+        "level": 5,
+        "weight_kg": 6.5,
+        "is_shiny": false,
+        "held_item": null,
+        "skills": [
+            "Growl",
+            "Tackle",
+            "Razon leaf",
+            "Poison powder"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 49,
+            "defense": 49,
+            "sp_attack": 65,
+            "sp_defense": 65,
+            "speed": 45
+        }
+    },
+    {
+        "name": "Caterpie",
+        "type": "Bug",
+        "level": 10,
+        "weight_kg": 2.7,
+        "is_shiny": false,
+        "held_item": null,
+        "skills": [
+            "Cut",
+            "Venom",
+            "Sharp",
+            "Defense"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 30,
+            "defense": 35,
+            "sp_attack": 20,
+            "sp_defense": 20,
+            "speed": 45
+        }
+    },
+    {
+        "name": "Squirtle",
+        "type": "Water",
+        "level": 12,
+        "weight_kg": 9.0,
+        "is_shiny": false,
+        "held_item": null,
+        "skills": [
+            "Tackle",
+            "Water gun",
+            "Bubble beam",
+            "Icy wind"
+        ],
+        "stats": {
+            "hp": 44,
+            "attack": 48,
+            "defense": 65,
+            "sp_attack": 50,
+            "sp_defense": 64,
+            "speed": 43
+        }
+    },
+    {
+        "name": "Ivysaur",
+        "type": "Plant",
+        "level": 5,
+        "weight_kg": 12.0,
+        "is_shiny": false,
+        "held_item": null,
+        "skills": [
+            "Growl",
+            "Tackle",
+            "Razor leaf",
+            "Take down"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 63,
+            "defense": 65,
+            "sp_attack": 80,
+            "sp_defense": 80,
+            "speed": 60
+        }
+    }
+]
