@@ -1,0 +1,1 @@
+print("7 metros en centrimetros es " + str(7*100))
