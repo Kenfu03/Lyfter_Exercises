@@ -1,0 +1,29 @@
+commit 9e576b7dd2cd961da70e11c11ff1ed632d78d350 (HEAD -> old_exercises, origin/old_exercises)
+Author: kenek <kennethesa324@gmail.com>
+Date:   Sat Jun 20 20:04:55 2026 -0600
+
+    Apply some recomendations in json_extra exercises
+
+commit f6d5e05f3b2fc75e638054ec14b87e9d08194762
+Author: kenek <kennethesa324@gmail.com>
+Date:   Fri Jun 19 21:27:01 2026 -0600
+
+    Uploading first exercises
+
+commit ecfd791b9b489c546db01c58c4bcd3ff04f4a6ef
+Author: Kenneth Fuentes <51031018+Kenfu03@users.noreply.github.com>
+Date:   Fri Jun 19 21:20:13 2026 -0600
+
+    Initial commit
+
+
+Initial commit -> Hace referencia a la creacion del repositorio git, con un commit inicial,
+normalmente añade el .README al repositorio.
+
+
+Uploading first exercises -> Cargando los primeros ejercicios al repositorio, utilizando la rama
+"old_exercises".
+
+
+Apply some recomendations in json_extra exercises -> Aplique algunas recomendaciones en el ultimo
+ejercicio de manejo de json, utilizando la rama "old_exercises"
