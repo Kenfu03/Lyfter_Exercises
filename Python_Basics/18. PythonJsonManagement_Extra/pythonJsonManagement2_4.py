@@ -2,8 +2,8 @@ import json
 PATH = "../17. PythonJsonManagement1/pokemons.json"
 
 
-def read_json():
-    with open(PATH, "r") as file:
+def read_json(file_path):
+    with open(file_path, "r") as file:
         loaded_data = json.load(file)
     return loaded_data
 
@@ -32,7 +32,7 @@ def average_level_per_type(pokemon_type_dict):
 
 if __name__ == "__main__":
     try:
-        pokemon_list = read_json()
+        pokemon_list = read_json(PATH)
         pokemon_type_list = group_by_type(pokemon_list)
         average_type_level = average_level_per_type(pokemon_type_list)
         for keys, values in average_type_level.items():
