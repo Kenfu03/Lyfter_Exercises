@@ -1,5 +1,5 @@
 import json
-PATH = "../17. PythonJsonManagement1/pokemons.json"
+PATH = "../17. PythonJsonManagement/pokemons.json"
 
 
 def read_json():
