@@ -3,7 +3,7 @@ import data
 import os
 
 
-subject_list = ["Spanish grade", "English grade", "Humanities grade", "Science grade"]
+SUBJECT_LIST = ["Spanish grade", "English grade", "Humanities grade", "Science grade"]
 
 
 def check_csv_path():
@@ -24,7 +24,7 @@ def choose_option():
 def calculate_student_average(student : dict) -> float:
     grades_sum = 0
 
-    for subject in subject_list:
+    for subject in SUBJECT_LIST:
         grades_sum += student.get(subject.lower())
 
     return grades_sum / 4
@@ -50,12 +50,12 @@ def add_student(data):
             "section": inputs.ask_section()
         }
 
-        if not find_student_index(new_student, data):
+        if find_student_index(new_student, data) is None:
             break
 
         print("Student already exists.")
 
-    for subject in subject_list:
+    for subject in SUBJECT_LIST:
         new_student[subject.lower()] = inputs.ask_grade(subject)
 
     new_student["grades average"] = calculate_student_average(new_student)
@@ -92,7 +92,7 @@ def show_dict_information(data : list[dict], title):
     for item in data:
         print(f"\n - {item.get("name")} in section {item.get("section")}")
 
-        for subject in subject_list:
+        for subject in SUBJECT_LIST:
 
             if check_none(item, subject.lower()):
                 print(f"{subject}: {item.get(subject.lower())}")
@@ -106,6 +106,15 @@ def find_top_3_student(data, key_to_find):
     return sorted_data[:3]
 
 
+def calculate_general_avg(data):
+    group_size = len(data)
+    avg_grades_sum = 0
+
+    for student in data:
+        avg_grades_sum += float(student.get("grades average"))
+    return avg_grades_sum / group_size
+
+
 def find_disapproved_students(data : list[dict], minimun_grade):
     disapproved_students_list : list[dict] = []
     for student in data:
@@ -116,7 +125,7 @@ def find_disapproved_students(data : list[dict], minimun_grade):
                     "section": student.get("section")
                 }
 
-        for subject in subject_list:
+        for subject in SUBJECT_LIST:
             actual_grade = float(student.get(subject.lower()))
             if actual_grade < minimun_grade:
                 disapproved_student[subject.lower()] = actual_grade

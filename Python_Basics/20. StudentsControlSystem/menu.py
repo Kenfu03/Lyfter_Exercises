@@ -7,7 +7,7 @@ def print_menu():
     print("""1. Add students
 2. View all students
 3. Top 3 students
-4. Average grade per student
+4. General average grade
 5. Show disapproved studentss
 6. Delete student
 7. Import students using csv file
@@ -40,8 +40,10 @@ def options_menu():
                 top_3 = actions.find_top_3_student(data, "grades average")
                 actions.show_dict_information(top_3, "Top 3 students in the system")
                 continue
-            case (4):
-                actions.show_dict_information(data, "Average grades per student")
+            case (4):   
+                print("\nGeneral average grade")
+                general_avg = actions.calculate_general_avg(data)
+                print(f"The average in the whole group is: {general_avg}")
                 continue
             case (5):
                 disapproved_students : list[dict] = actions.find_disapproved_students(data, 60)
