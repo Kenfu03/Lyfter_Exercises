@@ -19,7 +19,7 @@ class SavingsAccount(BankAccount):
 
 
     def remove_money(self, amount):
-        if self.balance - self.min_balance > amount:
+        if self.balance - amount >= self.min_balance:
             self.balance -= amount
         else:
             print(f"The minimum money in the Saving account is: S{self.min_balance}")

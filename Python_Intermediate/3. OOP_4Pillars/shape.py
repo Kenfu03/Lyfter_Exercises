@@ -43,11 +43,11 @@ class Square(Shape):
         self.side = side
 
     def calculate_area(self):
-        return 4 * self.side
+        return self.side ** 2
 
 
     def calculate_perimeter(self):
-        return self.side ** 2
+        return 4 * self.side
 
 
 circle = Circle(4)
