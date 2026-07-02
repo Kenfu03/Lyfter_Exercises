@@ -15,7 +15,7 @@ class Car(Vehicle):
 
     def get_info(self):
         sentence = super().get_info()
-        return sentence + f"- Doors: {self.doors}"
+        return sentence + f" - Doors: {self.doors}"
 
 
 class Motorcycle(Vehicle):
@@ -26,7 +26,7 @@ class Motorcycle(Vehicle):
 
     def get_info(self):
         sentence = super().get_info()
-        return sentence + f"- Type: {self.bike_type}"
+        return sentence + f" - Type: {self.bike_type}"
 
 
 moto = Motorcycle("Yamaha", 2025, "Sport")

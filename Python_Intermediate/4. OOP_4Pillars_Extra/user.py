@@ -10,7 +10,7 @@ class User(ABC):
 
 
     @abstractmethod
-    def get_role(self):
+    def get_role(self, action):
         pass
 
 
