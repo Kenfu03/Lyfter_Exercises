@@ -1,12 +1,10 @@
 def repeat_twice(func):
     def wrapper(name):
-        print(func(name))
-        return func(name)
-
+        return func(name) + "\n" + func(name)
     return wrapper
 
 @repeat_twice
 def hello(name :str) -> str:
-    return(f"Hola {name}")
+    return(f"Hello {name}")
 
 print(hello("Ken"))
