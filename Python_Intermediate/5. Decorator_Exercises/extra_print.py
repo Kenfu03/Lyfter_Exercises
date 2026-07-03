@@ -3,7 +3,7 @@ def extra_information(func):
     def wrapper(*args):
         for arg in args:
             print(arg)
-        print(f"Decorator result: {func(*args)}")
+        return(f"Decorator result: {func(*args)}")
 
     return wrapper
 
@@ -12,4 +12,4 @@ def extra_information(func):
 def random_function(*args):
     return sum(args) / len(args)
 
-random_function(1, 50, 67, 54, 34, 22, 57, 75, 755, 4, 65)
+print(random_function(1, 50, 67, 54, 34, 22, 57, 75, 755, 4, 65))
