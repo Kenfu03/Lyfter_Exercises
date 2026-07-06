@@ -78,7 +78,7 @@ class DoubleLinkedList:
         return False
 
 
-    def print_foward(self):
+    def print_forward(self):
         current_node = self.head
 
         if current_node is None:
@@ -112,15 +112,15 @@ print("Adding elements")
 dl.append("A")
 dl.append("B")
 dl.append("C")
-dl.print_foward()
+dl.print_forward()
 dl.print_backward()
 
 print("Adding elements")
 dl.prepend("X")
-dl.print_foward()
+dl.print_forward()
 dl.print_backward()
 
 print(f"Deleting element: {dl.delete("B").data}")
-dl.print_foward()
+dl.print_forward()
 dl.print_backward()
 
