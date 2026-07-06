@@ -7,10 +7,6 @@ class Node:
         self.prev = prev
 
 class DoubleEndedQueue():
-    def __init__(self, head):
-        self.head = head
-        self.tail = head
-
     def __init__(self, head = None):
         self.head = head
         self.tail = head
