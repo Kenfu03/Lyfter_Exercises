@@ -1,5 +1,7 @@
 def validate_number_list(func):
     def wrapper(list):
+        if len(list) == 0:
+            raise ValueError("Empty list!")
         if not all(isinstance(n, (int, float)) for n in list):
             raise ValueError("All arguments must be numbers.")
 
@@ -45,7 +47,7 @@ def bubble_sort(arr):
 
 if __name__ == "__main__":
     try:
-        my_list = [8, 9, "Hola", 15, -12, -16, 20, 76]
+        my_list = []
         result = bubble_sort(my_list)
         print(f"""Sort array = {result["array"]}
 Comparisons = {result["comparisons"]}
