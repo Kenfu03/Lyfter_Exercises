@@ -123,17 +123,6 @@ class FinanceManager:
         self._auto_save()
         return movement
 
-    def _validate_amount(self, amount: str):
-        try:
-            value = float(str(amount).strip())
-        except ValueError as exc:
-            raise ValueError("Amount must be numeric.") from exc
-
-        if value <= 0:
-            raise ValueError("Amount must be greater than zero.")
-
-        return value
-
     def _validate_category(self, category_name: str, movement_type: str):
         if not category_name:
             raise ValueError("Category is required.")
@@ -145,8 +134,21 @@ class FinanceManager:
 
         if category.category_type not in ("", movement_type):
             raise ValueError(f"Category must belong to {movement_type}.")
+    
+    @staticmethod
+    def _validate_amount(amount: str):
+        try:
+            value = float(str(amount).strip())
+        except ValueError as exc:
+            raise ValueError("Amount must be numeric.") from exc
 
-    def _validate_date(self, date_text: str):
+        if value <= 0:
+            raise ValueError("Amount must be greater than zero.")
+
+        return value
+
+    @staticmethod
+    def _validate_date(date_text: str):
         try:
             if date_text == "":
                 movement_date = datetime.today().date()
@@ -160,6 +162,13 @@ class FinanceManager:
             raise ValueError("Date cannot be in the future.")
 
         return movement_date
+
+    @staticmethod
+    def _remove_spaces_text(value: str):
+        if value is None:
+            return ""
+
+        return value.strip()
 
     def _parse_optional_date(self, date_text: str):
         clean_date = self._remove_spaces_text(date_text)
@@ -181,12 +190,6 @@ class FinanceManager:
 
         return None
 
-    def _remove_spaces_text(self, value: str):
-        if value is None:
-            return ""
-
-        return value.strip()
-
-    def _auto_save(self) -> None:
+    def _auto_save(self):
         if self.save_callback is not None:
             self.save_callback(self.categories, self.movements)
