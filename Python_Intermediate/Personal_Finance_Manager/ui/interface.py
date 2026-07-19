@@ -43,7 +43,9 @@ class FinanceAppUI:
             event, values = window.read()
 
             if event in (sg.WIN_CLOSED, "Exit"):
-                break
+                if self._save_before_exit():
+                    break
+                continue
 
             if event == "Add Category":
                 self._open_add_category_window()
@@ -73,6 +75,19 @@ class FinanceAppUI:
                 self._export_movements()
 
         window.close()
+
+    def _save_before_exit(self):
+        """Save on every exit path and keep the window open if saving fails."""
+        try:
+            self.manager.save_current_state()
+        except Exception as error:
+            sg.popup_error(
+                "The data could not be saved. The application will remain open.\n\n"
+                f"Details: {error}"
+            )
+            return False
+
+        return True
 
     def _create_main_window(self):
         layout = [

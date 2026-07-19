@@ -13,8 +13,60 @@ class FinanceManager:
         self.save_callback = save_callback
 
     def set_data(self, categories: list[Category], movements: list[Movement]):
+        self.validate_loaded_data(categories, movements)
         self.categories = categories
         self.movements = movements
+
+    def save_current_state(self):
+        """Persist the current state through the configured storage callback."""
+        self._auto_save()
+
+    @classmethod
+    def validate_loaded_data(cls, categories: list[Category], movements: list[Movement]):
+        """Validate data hydrated from storage before it becomes application state."""
+        category_names = set()
+
+        for category in categories:
+            name = cls._remove_spaces_text(category.name)
+            category_type = cls._remove_spaces_text(category.category_type).lower()
+            color = cls._remove_spaces_text(category.color)
+
+            if not name:
+                raise ValueError("Loaded category has no name.")
+            if category_type not in cls.VALID_CATEGORY_TYPES:
+                raise ValueError(f"Category '{name}' has an invalid type.")
+            if not color:
+                raise ValueError(f"Category '{name}' has no color.")
+
+            normalized_name = name.lower()
+            if normalized_name in category_names:
+                raise ValueError(f"Duplicate category '{name}' in saved data.")
+            category_names.add(normalized_name)
+
+        category_by_name = {category.name.lower(): category for category in categories}
+
+        for movement in movements:
+            title = cls._remove_spaces_text(movement.title)
+            category_name = cls._remove_spaces_text(movement.category)
+            movement_type = cls._remove_spaces_text(movement.movement_type).lower()
+
+            if not title:
+                raise ValueError("Loaded movement has no title.")
+            cls._validate_amount(movement.amount)
+            cls._validate_date(cls._remove_spaces_text(movement.date))
+
+            if movement_type not in cls.VALID_CATEGORY_TYPES:
+                raise ValueError(f"Movement '{title}' has an invalid type.")
+
+            category = category_by_name.get(category_name.lower())
+            if category is None:
+                raise ValueError(
+                    f"Movement '{title}' references a category that does not exist."
+                )
+            if category.category_type != movement_type:
+                raise ValueError(
+                    f"Movement '{title}' does not match its category type."
+                )
 
     def add_category(self, name: str, category_type: str, color: str):
         clean_name = self._remove_spaces_text(name)
