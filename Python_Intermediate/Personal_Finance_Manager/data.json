@@ -1,0 +1,61 @@
+{
+    "categories": [
+        {
+            "name": "Work",
+            "category_type": "income",
+            "color": "#2e8b57"
+        },
+        {
+            "name": "Food",
+            "category_type": "expense",
+            "color": "#d9534f"
+        },
+        {
+            "name": "Saving",
+            "category_type": "income",
+            "color": "#20b2aa"
+        },
+        {
+            "name": "House",
+            "category_type": "expense",
+            "color": "#dff34f"
+        }
+    ],
+    "movements": [
+        {
+            "title": "Salary",
+            "amount": 110000.0,
+            "category": "Work",
+            "date": "08/04/2026",
+            "movement_type": "income"
+        },
+        {
+            "title": "House expenses",
+            "amount": 80000.0,
+            "category": "House",
+            "date": "07/06/2026",
+            "movement_type": "expense"
+        },
+        {
+            "title": "Pizza",
+            "amount": 8000.0,
+            "category": "Food",
+            "date": "13/07/2026",
+            "movement_type": "expense"
+        },
+        {
+            "title": "Pizzita",
+            "amount": 10000.0,
+            "category": "Food",
+            "date": "13/07/2026",
+            "movement_type": "expense"
+        },
+        {
+            "title": "Comida Afuera",
+            "amount": 14000.0,
+            "category": "Food",
+            "date": "13/07/2026",
+            "movement_type": "expense"
+        }
+    ]
+}
